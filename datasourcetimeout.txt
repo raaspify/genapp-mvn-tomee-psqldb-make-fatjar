@@ -1,0 +1,15 @@
+ <Resource name="jdbc/appdb"  auth="Container"
+              type="javax.sql.DataSource" 
+              username="**********" 
+              password="**********" 
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/appdb?autoReconnect=true"
+              maxActive="15"  maxIdle="3"
+                testWhileIdle="true"
+              testOnBorrow="true"
+              testOnReturn="false"
+              validationQuery="SELECT 1"
+              validationInterval="30000"
+              timeBetweenEvictionRunsMillis="30000"/>
+30 secs may be too short
+numTestsPerEvictionRun to "-1" may not be supported
