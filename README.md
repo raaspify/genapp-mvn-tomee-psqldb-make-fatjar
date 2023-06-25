@@ -1,5 +1,12 @@
 # genapp-mvn-tomee-psqldb-make-fatjar
-This builds fat jar from the app source for a specific appserver target ie Apache Tomee. The output is in the target dir and among others, contains ROOT-exec.jar
+This builds fat jar from the app source for a specific appserver target ie Apache Tomee. The output is in the target dir and among others, contains ROOT-exec.jar.  
+The following files need to be copied from the <app-source>/r3-gen/projects/genappcdi to this repository's src/main dir  
+java  
+report-templates  
+resources  
+tomee  
+webapp  
+
 The repository itself is populated  from a local repository using git push. which pushes all committed changes to remote git repository. 
 
 The app source is maintained in github repository https://github.com/raaspify/raaspi-jee 
