@@ -287,6 +287,12 @@ public class SqlAdminSupport implements Serializable {
        String sqlScript ="";
        //sqlScript="CREATE SCHEMA "+schemaName+" AUTHORIZATION "+schemaOwner;
        sqlScript="CREATE SCHEMA "+schemaName;
+       if(entityManager == null){
+        FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
+         FacesMessage.SEVERITY_INFO,"create schema entityManager null",""));
+         log.info("create schema entityManager null");
+         return null;
+       }
        Query q = entityManager.createNativeQuery(sqlScript);
        q.executeUpdate();
        //do not use resource bundle message, tables may not exist

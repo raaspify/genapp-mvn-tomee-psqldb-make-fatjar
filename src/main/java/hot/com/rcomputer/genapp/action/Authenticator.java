@@ -51,16 +51,9 @@ import javax.naming.InitialContext;
 import java.sql.ResultSet;
 
 
-
-@Named ("authenticator")
-@SessionScoped
-@PicketLink
-@Default
 /**
 * This is Action class Authenticator which extends org.picketlink.authentication
 * to provide id/password based login function 
-* @author 3r Computer Systems  
-* @version 2.0
 * each user session  comes here via call to checkCreateTables() ie create master site or not
 * home page loggedIn or not, calls its currcaldates method and setClientChosenSkin() method
 *  comes here via login page > customIdentity > authenticate()
@@ -69,7 +62,14 @@ import java.sql.ResultSet;
 * setClientChosenSkin method has extra logic to count stats like homepagevisit etc and 
 * persist in client field locbaradj
 * usagebyPerods table record with key visitstats3r holds the stats and MyDashboard.xhtml will display them
+* @author 3r Computer Systems  
+* @version 2.0
 */
+
+@Named ("authenticator")
+@SessionScoped
+@PicketLink
+@Default
 
 public class Authenticator extends BaseAuthenticator implements Serializable{
      @Inject
@@ -1487,11 +1487,11 @@ public class Authenticator extends BaseAuthenticator implements Serializable{
       log.info(" checkCreateTables-DB Name "+ productName+ "- creating schema,tables,tables_b and tables_c");
       if(productName.contains("HSQL")){
        FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
-        FacesMessage.SEVERITY_INFO,"After site create is done, please login using id manager and password manager or admin with pw admin. ",""));
+        FacesMessage.SEVERITY_INFO,"After site create is done, please login using id manager and password manager or admin with password admin. ",""));
        FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
         FacesMessage.SEVERITY_WARN,"Temporary passwords will EXPIRE in 48 hrs. Please change the employee and client email id if mail@"+owner2Code+".com is not a working one. ",""));
        FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
-        FacesMessage.SEVERITY_WARN,"Reset or change password commands will send passwords via email. ",""));
+        FacesMessage.SEVERITY_WARN,"Reset or change password commands will send passwords via email and you will not see it, if email id is invalid . ",""));
 
        sqlAdminSupport.createSchema("","","");//product hql,schema genapp,owner sa
        sqlAdminSupport.createTables("","");//schema,owner

@@ -36,16 +36,16 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 import javax.persistence.*;
 
-
-@Named("customIdentity")
-@SessionScoped
 /**
 * This is Action class
-* @author 3r Computer Systems
 * comes here from login page which call login() method
 * which in turn calls Authenticator authenticate() method()
 * increases session time out to 40mts from visitor 10mts, if loggedIn
+* @author 3r Computer Systems
 */
+
+@Named("customIdentity")
+@SessionScoped
 
 public class CustomIdentity implements Serializable{
    private Logger log = Logger.getLogger(CustomIdentity.class.getCanonicalName());

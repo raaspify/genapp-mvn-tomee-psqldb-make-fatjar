@@ -47,11 +47,6 @@ import java.nio.charset.StandardCharsets;
 
 
 
-@Named("file")
-//@SessionScoped
-@ViewScoped
-//@RequestScoped
-@Transactional
 /**
 * This is Raaspi File Model class
 * utility class for uploading local files and managing their content
@@ -59,6 +54,9 @@ import java.nio.charset.StandardCharsets;
 * @author 3r Computer Systems
 * @version 2.0
 */
+@Named("file")
+@ViewScoped
+@Transactional
 
 public class File implements java.io.Serializable{
    @Inject
@@ -204,7 +202,7 @@ public class File implements java.io.Serializable{
     * The following method loads local files to App Server using browser html5 input
     * uses omnifaces to handle multi files upload.
     * called by themeImport.xhtml, needs enctype="multipart/form-data" in h:form tag
-    * and use xmlns:o="http://omnifaces.org/ui" in <ui:composition tag and omnifaces-2.6.9.jar in lib
+    * and use xmlns:o="http://omnifaces.org/ui" in  ui:composition tag and omnifaces-2.6.9.jar in lib
     * @param args none
     * @return String empty
     * @exception caught and logged or messages shown. multipart/form-data if enctype not specified in <form tag
