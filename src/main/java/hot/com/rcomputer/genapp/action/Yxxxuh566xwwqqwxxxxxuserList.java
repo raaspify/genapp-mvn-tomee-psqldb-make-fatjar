@@ -1581,6 +1581,31 @@ public Yxxxuh566xwwqqwxxxxxuserList()
       
      }
 
+       /**
+    * The following method added since hql seems to be dropping order by in some queries (perioddates getResultList() )and where order is important
+    * @param args -none
+    * @return List<Yxxxuq632xwwqqhxxxxxperioddates>
+    * @exception to be added
+    * @see getResultList()
+    */
+
+     public List<Yxxxuh566xwwqqwxxxxxuser> getSortedResultList(){
+            if(getOrderColumn()!=null){
+             lorderColumn=getOrderColumn();
+            }
+            if(getOrderDirection()!=null){
+            lorderDirection=getOrderDirection();
+            }
+            lorder=lorderColumn+" "+lorderDirection;
+            sresults=null;
+            sresults =  getEntityManager()
+             .createQuery(
+               "select cc from Yxxxuh566xwwqqwxxxxxuser  cc where (cc.zzxxu2oxxhxxxxxxxxxxowner2 = :owner2  ) order by "+ lorder)
+                 .setParameter("owner2", owner2Code)
+                  .getResultList();
+       return sresults;
+      }
+
 
        /**
     * The following method overrides seam method because setOrder did not work 
@@ -1607,7 +1632,7 @@ public Yxxxuh566xwwqqwxxxxxuserList()
       // maxResults may be set by caller or already set as 6
       // search1 ie key property may be empty , getFirst is a method in seam superclass and sets the first record
       // use seq not key seqs for numeric ordering //jayresultList
-
+ 
       // start null seems to make query return null, also null pointer to make lowercase
       if(start == null){
        start=" ";
@@ -2073,8 +2098,8 @@ public Yxxxuh566xwwqqwxxxxxuserList()
                 String owner2CodeS="SYSTEM";// test how it behaves
                  prefix="0";
                  if( customIdentity.hasRole("VW") || customIdentity.hasRole("VQ")||customIdentity.hasRole("VH")||customIdentity.hasRole("PH")){
-			return getEntityManager().createQuery(" select cc from Yxxxuh566xwwqqwxxxxxuser cc where cc.a0xxukuxbvxxxxxxxxxxid >=:keyOfEntity AND cc.z1xxzzfxhhxxxxxxxxxxstatusfl != :flag AND cc.c6xxusxrbv16xxxxxxxxtype LIKE  :showTypePrefix1  AND (cc.zzxxu2oxxhxxxxxxxxxxowner2=:owner2S) AND cc.zexxutoxlhxxxxxxxxxxowner=:ownerCode order by cc.a0xxukuxbvxxxxxxxxxxid")
-        				.setParameter("keyOfEntity", prefix).setParameter("flag", mclosed).setParameter("showTypePrefix1", "BI-L%").setParameter("owner2", owner2Code).setParameter("owner2S", owner2CodeS)
+			return getEntityManager().createQuery(" select cc from Yxxxuh566xwwqqwxxxxxuser cc where cc.a0xxukuxbvxxxxxxxxxxid >=:keyOfEntity AND cc.z1xxzzfxhhxxxxxxxxxxstatusfl != :flag AND cc.c6xxusxrbv16xxxxxxxxtype LIKE  :showTypePrefix1  AND (cc.zzxxu2oxxhxxxxxxxxxxowner2=:owner2S)  order by cc.a0xxukuxbvxxxxxxxxxxid")
+        				.setParameter("keyOfEntity", prefix).setParameter("flag", mclosed).setParameter("showTypePrefix1", "BI-L%").setParameter("owner2S", owner2CodeS)
 					.getResultList();
                  //NC will come here
                  }else{
@@ -2932,10 +2957,10 @@ protected String getCountEjbql()
                              if(client05 !=null){
                               fromAddress=client05.getD5xxuxxrbvxxxxxxxxxxrmailaddr();//show in o5 quick edit, need to match the sender info setup in mailrelay server
                               siteAddress05=client05.getD4xxhxxrbv24xxxxxxxximailaddr();//exmpl mail@raaspi.com 
-                              host=client05.getZ8xxuxxxbvxxxxxxxxxxsmtpserver();//exmpl smtp.sendgrid.net
-                              userName=client05.getZ9xxuxxxbvxxxxxxxxxxsmtpuser();//exmpl apikey if sendgrid. logic may need change to support other mailRelay server 
+                              host=client05.getZ8xxuxxxbvxxxxxxxxxxsmtpserver().trim();//exmpl smtp.sendgrid.net
+                              userName=client05.getZ9xxuxxxbvxxxxxxxxxxsmtpuser().trim();//exmpl apikey if sendgrid. logic may need change to support other mailRelay server 
                               userName05=userName;
-                              password=client05.getDbxxuzxdssxxxxxxxxxxapiclientsecret();//access token
+                              password=client05.getDbxxuzxdssxxxxxxxxxxapiclientsecret().trim();//access token
                               password05=password;
                               if(password == null || password.isEmpty() || password.equals("SG.BxxxxxxxxxxyyyyyiBg") ){
                                smtpError=true; //both record 01 and 05 checked
@@ -2953,21 +2978,21 @@ protected String getCountEjbql()
                         }
                       }else{
                        if(client.getZ8xxuxxxbvxxxxxxxxxxsmtpserver()!=null && !client.getZ8xxuxxxbvxxxxxxxxxxsmtpserver().isEmpty()){
-                        host=client.getZ8xxuxxxbvxxxxxxxxxxsmtpserver();
+                        host=client.getZ8xxuxxxbvxxxxxxxxxxsmtpserver().trim();
                        }else{
                          smtpError=true;
                          FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
                            FacesMessage.SEVERITY_INFO,bundle.getString("client") +" "+bundle.getString("smtp")+" "+bundle.getString("host")+" "+bundle.getString("information") +" "+bundle.getString("missing"),""));
                        }
                        if(client.getZ9xxuxxxbvxxxxxxxxxxsmtpuser()!=null && !client.getZ9xxuxxxbvxxxxxxxxxxsmtpuser().isEmpty()){
-                        userName=client.getZ9xxuxxxbvxxxxxxxxxxsmtpuser();
+                        userName=client.getZ9xxuxxxbvxxxxxxxxxxsmtpuser().trim();
                        }else{
                          smtpError=true;
                          FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
                            FacesMessage.SEVERITY_INFO,bundle.getString("client") +" "+bundle.getString("smtp")+" "+bundle.getString("userName")+" "+bundle.getString("information") +" "+bundle.getString("missing"),""));
                        }
                        if(client.getZaxxuxxxssxxxxxxxxxxsmtppass()!=null && !client.getZaxxuxxxssxxxxxxxxxxsmtppass().isEmpty()){
-                        password=client.getZaxxuxxxssxxxxxxxxxxsmtppass();
+                        password=client.getZaxxuxxxssxxxxxxxxxxsmtppass().trim();
                        }else{
                          //smtpError=true; check record 07 then act
                          //FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
@@ -3023,13 +3048,13 @@ protected String getCountEjbql()
           if(client !=null && client.getDaxxuzxdssxxxxxxxxxxapiclientid() !=null && !client.getDaxxuzxdssxxxxxxxxxxapiclientid().isEmpty()
               && client.getDbxxuzxdssxxxxxxxxxxapiclientsecret() !=null && !client.getDbxxuzxdssxxxxxxxxxxapiclientsecret().isEmpty()){
            auth_mechanisms="XOAUTH2";//gmail smtp
-           password=client.getDbxxuzxdssxxxxxxxxxxapiclientsecret();//access token
+           password=client.getDbxxuzxdssxxxxxxxxxxapiclientsecret().trim();//access token
            //check if token expired and refresh if needed
            calendar.getTime();
            calendare.setTime(client.getZfxxcztxlxxxxxxxxxxxstatusfldt());
            calendare.add(Calendar.MINUTE, 59);
            if(calendare.before(calendar)){
-            password=r3RestClient.getAccessTokenGMail(client.getDaxxuzxdssxxxxxxxxxxapiclientid(),"refresh_token",owner2Code );
+            password=r3RestClient.getAccessTokenGMail(client.getDaxxuzxdssxxxxxxxxxxapiclientid().trim(),"refresh_token",owner2Code );
            }      
            if(password == null || password.isEmpty()){
             smtpError=true; //both record 01 and 07 checked
@@ -3072,7 +3097,7 @@ protected String getCountEjbql()
           if(fromAddress.contains("doNotReply@")){
            fromAddress="doNotReply@"+smtpDomain;
            FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
-              FacesMessage.SEVERITY_INFO, bundle.getString("select cc from")+" "+bundle.getString("email")+" "+bundle.getString("address")+" "+bundle.getString("defaulting")+" "+bundle.getString("to")+" "+fromAddress+", "+bundle.getString("ensure")+" "+bundle.getString("it")+" "+bundle.getString("exists"),""));
+              FacesMessage.SEVERITY_INFO, bundle.getString("from")+" "+bundle.getString("email")+" "+bundle.getString("address")+" "+bundle.getString("defaulting")+" "+bundle.getString("to")+" "+fromAddress+", "+bundle.getString("ensure")+" "+bundle.getString("it")+" "+bundle.getString("exists"),""));
           }else{
                FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
                    FacesMessage.SEVERITY_WARN,bundle.getString("select cc from_address") +" "+fromAddress+", "+bundle.getString("domain") +" "+bundle.getString("not")+" "+bundle.getString("matching")+" "+bundle.getString("smtp")+" "+bundle.getString("server")+" "+bundle.getString("domain")+" "+smtpDomain,""));
@@ -3115,10 +3140,13 @@ protected String getCountEjbql()
          // esend from cart/transaction can be any of pdf/html/csv etc atleast pdf or html
          //if html then it can be embedded (preferred) not as attachment
          if(flag.equals("e")){
-         subjectTemplate=bundle.getString("Follow")+" "+bundle.getString("up")+" "+bundle.getString("select cc from")+" "+owner2Code;
+         subjectTemplate=bundle.getString("Follow")+" "+bundle.getString("up")+" "+bundle.getString("from")+" "+owner2Code;
          //emailingContent for emailing and attaching report as receipt 
           toName="";// mailingAddress set by esend using mailTo, headers are empty todo allow multilingual
           toAddress=mailingAddress;
+          if(siteAddress05 !=null && !siteAddress05.isEmpty()){
+           toAddress=siteAddress05;// avoid invalid email addr ie no email addr for site domain
+          }
           useTemplate="usereMailingContent.fmt";
            if(!mailRelayOff){
                e =
@@ -3150,6 +3178,9 @@ protected String getCountEjbql()
           if(!getClientEMail().isEmpty() && !mailingAddress.isEmpty()){
            toAddress=mailingAddress;// should not be empty if empty  then default is support@customIdentity.getMasterSiteUrl()
           }///  value in e1mailAddress including coming from ebasketin gets added to xsmtpi header toAddress
+          if(siteAddress05 !=null && !siteAddress05.isEmpty()){
+           toAddress=siteAddress05;// avoid invalid email addr ie no email addr for site domain
+          }
           //if(!e1mailAddress.isEmpty()){
            //toAddress=e1mailAddress;
           //}
@@ -3167,6 +3198,9 @@ protected String getCountEjbql()
              toAddress=e1mailAddress+", "+mailInfoTo; // added onetime e1mailAddr
             }else{
              toAddress=mailInfoTo;  
+             if(siteAddress05 !=null && !siteAddress05.isEmpty()){
+              toAddress=siteAddress05;// avoid invalid email addr ie no email addr for site domain
+             }
             }
             String[] myData = toAddress.split(", ");
             for (String s: myData) {
@@ -3327,9 +3361,15 @@ protected String getCountEjbql()
          // retry with refresh if failed on bad token or expired token then only get a new token using
          // existing refresh token(client site record 07 clientId)
          // send again using new token is there subcode for expired or check token expiry?
+         if(cause.contains("invalid")){
+          FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
+           FacesMessage.SEVERITY_INFO,bundle.getString("Invalid")+" "+ bundle.getString("email")+" "+bundle.getString("may")+" "+bundle.getString("mean")+" "+bundle.getString("space ")+" "+bundle.getString("at")+" "+bundle.getString("end")+", "+" "+bundle.getString("sender")+" "+bundle.getString("email")+" "+bundle.getString("not")+" "+bundle.getString("smtp")+" "+bundle.getString("user"),""));
+          FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
+           FacesMessage.SEVERITY_INFO,bundle.getString("client")+" "+ bundle.getString("record")+" "+bundle.getString("05")+" "+bundle.getString("client")+" "+bundle.getString("email ")+" "+bundle.getString("field")+" "+bundle.getString("allows")+" "+bundle.getString("override"),""));
+         } 
          if(cause.contains("334")){
           
-          password=r3RestClient.getAccessTokenGMail(client.getDaxxuzxdssxxxxxxxxxxapiclientid(),"refresh_token",owner2Code );
+          password=r3RestClient.getAccessTokenGMail(client.getDaxxuzxdssxxxxxxxxxxapiclientid().trim(),"refresh_token",owner2Code );
           FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
            FacesMessage.SEVERITY_INFO,bundle.getString("Oauth")+" "+ bundle.getString("accessToken")+" "+bundle.getString("failure")+", ",""));
           FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
@@ -3440,6 +3480,13 @@ protected String getCountEjbql()
 
 	}
 
+     public Integer userAuthNotMailedCount(){
+      List<Yxxxuh566xwwqqwxxxxxuser> results =  getEntityManager()
+       .createQuery("select cc from Yxxxuh566xwwqqwxxxxxuser cc where cc.z1xxzzfxhhxxxxxxxxxxstatusfl = :partial AND cc.zzxxu2oxxhxxxxxxxxxxowner2 = :owner2 order by  cc.z2xxcztxlxxxxxxxxxxxstatusfldt").setParameter("owner2", owner2Code).
+           setParameter("partial", mpartial).getResultList();
+            return results.size();
+     }
+
 
    public void eSend(String sendAs,String start,String end,Boolean markedOnes,String eMailTo) {
     /**
@@ -3512,7 +3559,7 @@ protected String getCountEjbql()
 		.setParameter("owner2", owner2Code)
 		.getSingleResult();
 
-         setClientEMail("doNotReply@"+owner2Code+".com"); 
+         setClientEMail("doNotReply@"+owner2Code+customIdentity.getTld()); 
          //can come here as loggedIn or not loggedIn but eMail entered
          if(identity.isLoggedIn()){   
           //All loggedIn has customer record but may not have employee example self signedup 
@@ -3534,7 +3581,7 @@ protected String getCountEjbql()
 
          }else{
           if (client.getD4xxhxxrbv24xxxxxxxximailaddr() == null || client.getD4xxhxxrbv24xxxxxxxximailaddr().isEmpty()){
-           setClientEMail("doNotReply@"+owner2Code+".com"); 
+           setClientEMail("doNotReply@"+owner2Code+customIdentity.getTld()); 
            FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(
             FacesMessage.SEVERITY_WARN,bundle.getString("client")+" "+bundle.getString("email")+" "+bundle.getString("address")+" "+bundle.getString("is")+" "+bundle.getString("missing"),""));
 

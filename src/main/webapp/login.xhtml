@@ -11,6 +11,7 @@
 <f:metadata>
     <f:viewParam name="id" value="#{loginCredentials.userId}"/>
     <f:viewParam name="pw" value="#{loginCredentials.password}"/>
+    <f:viewAction action="#{loginCredentials.setPassword('xxxxxx')}" />
     <f:viewAction action="#{yxxxuh566xwwqqwxxxxxuserHome.takeAction()}" />
 </f:metadata>
 
@@ -115,9 +116,18 @@
                 <div class="actionButtons">
                  <h:commandButton styleClass="btn btn-primary ;" rendered="#{!identity.loggedIn}" id="loginb"  value="Login" action="#{customIdentity.login}"/>
                  &nbsp;<h:button id="ltdone"  value="Cancel" propagation="end" outcome="/home.xhtml" />
-
-                 <h:commandButton id="resendAct" value="Resend Activation " action="#{yxxxuh566xwwqqwxxxxxuserHome.doResendActivationEmail()}"
-                  rendered = "#{yxxxuh566xwwqqwxxxxxuserHome}.activationPending}" />
+                 <br></br>
+                 <ui:fragment rendered ="#{yxxxuh566xwwqqwxxxxxuserList.userAuthNotMailedCount() gt 0}">     
+                  <div id="loginx" style="width:40%;" >
+                   <div class="form-group">
+                    #{messages.signup_email}
+                    <h:inputText id="semail" class="form-control"  value="#{yxxxuh566xwwqqwxxxxxuserHome.instance.c1xxuxxxbvxxxxxxxxxxotherid}" size="30" 
+                     pt:placeholder="email@xyz.com" maxlength="50"/>
+                   <h:commandButton id="resendAct" value="Resend Activation " action="#{yxxxuh566xwwqqwxxxxxuserHome.doResendActivationEmail('loginsignIn',null)}"
+                    rendered = "#{yxxxuh566xwwqqwxxxxxuserList.userAuthNotMailedCount() gt 0}" />
+                   </div>
+                  </div>
+                 </ui:fragment>
                 </div>
                 <div>
                 <br/>
@@ -279,6 +289,44 @@
 
 
 </ui:fragment>
+<script>
+     let date = Date.now();
+     /* 2. Define your event. */
+     function sendEvent() {
+       gtag('event', 'logIn', {
+       'time': date,
+       });
+   }
+     function sendEvent2() {
+      //alert('jay');
+       gtag('event', 'signup', {
+       'time': date,
+       });
+   }
+
+document.getElementById("login:loginb").addEventListener("click", sendEvent);
+document.getElementById("login:signupLink").addEventListener("click", sendEvent2);
+
+   </script>
+  <script>
+     let date = Date.now();
+     /* 2. Define your event. */
+     function sendEvent() {
+       gtag('event', 'logIn', {
+       'time': date,
+       });
+   }
+     function sendEvent2() {
+      //alert('jay');
+       gtag('event', 'signup', {
+       'time': date,
+       });
+   }
+
+document.getElementById("login:loginb").addEventListener("click", sendEvent);
+document.getElementById("login:signupLink").addEventListener("click", sendEvent2);
+
+   </script>
 
  </ui:define> 
 </ui:composition>

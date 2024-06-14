@@ -182,7 +182,7 @@
       </h:outputLabel>
  
                <h:selectOneMenu style="width:250px;"  value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.a3xxuzyxbv46xxxxxxxxtype}" required="false" id="a3xxuzyxbv46xxxxxxxxtype">
-               <f:ajax  render="a3xxuzyxbv46xxxxxxxxtypeI" bypassUpdates="false"/>
+               <p:ajax  update="a3xxuzyxbv46xxxxxxxxtype" />
                                 <f:selectItem itemValue="#{null}" itemLabel="" />
                                 <f:selectItems value="#{yrxxch511xhhxxhxxxxxoptionsList.getoptionsFieldList('53',46)}"  var="babu"  
                                  itemLabel="#{babu.key}"
@@ -247,8 +247,9 @@
       <h:inputText id="b3xxza0rbvxxxxxxxxxxperiod0"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b3xxza0rbvxxxxxxxxxxperiod0}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b3xxza0rbvxxxxxxxxxxperiod0}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -261,8 +262,9 @@
       <h:inputText id="b3xxzb0rbvxxxxxxxxxxperiod0b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b3xxzb0rbvxxxxxxxxxxperiod0b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b3xxzb0rbvxxxxxxxxxxperiod0b}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -275,8 +277,9 @@
       <h:inputText id="b4xxzatrbvxxxxxxxxxxperiodtotals"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b4xxzatrbvxxxxxxxxxxperiodtotals}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b4xxzatrbvxxxxxxxxxxperiodtotals}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -289,8 +292,9 @@
       <h:inputText id="b4xxzbtrbvxxxxxxxxxxperiodtotalsb"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b4xxzbtrbvxxxxxxxxxxperiodtotalsb}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b4xxzbtrbvxxxxxxxxxxperiodtotalsb}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -303,9 +307,10 @@
       <h:inputText id="b5xxza1rbvxxxxxxxxxxperiod1actual"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b5xxza1rbvxxxxxxxxxxperiod1actual}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b5xxza1rbvxxxxxxxxxxperiod1actual}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -318,9 +323,10 @@
       <h:inputText id="b5xxzb1rbvxxxxxxxxxxperiod1budget"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b5xxzb1rbvxxxxxxxxxxperiod1budget}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b5xxzb1rbvxxxxxxxxxxperiod1budget}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -333,9 +339,10 @@
       <h:inputText id="b6xxza2rbvxxxxxxxxxxperiod2"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b6xxza2rbvxxxxxxxxxxperiod2}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b6xxza2rbvxxxxxxxxxxperiod2}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -348,9 +355,10 @@
       <h:inputText id="b6xxzb2rbvxxxxxxxxxxperiod2b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b6xxzb2rbvxxxxxxxxxxperiod2b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b6xxzb2rbvxxxxxxxxxxperiod2b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -363,9 +371,10 @@
       <h:inputText id="b7xxza3rbvxxxxxxxxxxperiod3"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b7xxza3rbvxxxxxxxxxxperiod3}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b7xxza3rbvxxxxxxxxxxperiod3}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -378,9 +387,10 @@
       <h:inputText id="b7xxzb3rbvxxxxxxxxxxperiod3b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b7xxzb3rbvxxxxxxxxxxperiod3b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b7xxzb3rbvxxxxxxxxxxperiod3b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -393,9 +403,10 @@
       <h:inputText id="b8xxza4rbvxxxxxxxxxxperiod4"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b8xxza4rbvxxxxxxxxxxperiod4}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b8xxza4rbvxxxxxxxxxxperiod4}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -408,9 +419,10 @@
       <h:inputText id="b8xxzb4rbvxxxxxxxxxxperiod4b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b8xxzb4rbvxxxxxxxxxxperiod4b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b8xxzb4rbvxxxxxxxxxxperiod4b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -423,9 +435,10 @@
       <h:inputText id="b9xxza5rbvxxxxxxxxxxperiod5"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b9xxza5rbvxxxxxxxxxxperiod5}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b9xxza5rbvxxxxxxxxxxperiod5}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -438,9 +451,10 @@
       <h:inputText id="b9xxzb5rbvxxxxxxxxxxperiod5b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b9xxzb5rbvxxxxxxxxxxperiod5b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.b9xxzb5rbvxxxxxxxxxxperiod5b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -453,9 +467,10 @@
       <h:inputText id="baxxza6rbvxxxxxxxxxxperiod6"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.baxxza6rbvxxxxxxxxxxperiod6}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.baxxza6rbvxxxxxxxxxxperiod6}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -468,9 +483,10 @@
       <h:inputText id="baxxzb6rbvxxxxxxxxxxperiod6b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.baxxzb6rbvxxxxxxxxxxperiod6b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.baxxzb6rbvxxxxxxxxxxperiod6b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -483,9 +499,10 @@
       <h:inputText id="bbxxza7rbvxxxxxxxxxxperiod7"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bbxxza7rbvxxxxxxxxxxperiod7}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bbxxza7rbvxxxxxxxxxxperiod7}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -498,9 +515,10 @@
       <h:inputText id="bbxxzb7rbvxxxxxxxxxxperiod7b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bbxxzb7rbvxxxxxxxxxxperiod7b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bbxxzb7rbvxxxxxxxxxxperiod7b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -513,9 +531,10 @@
       <h:inputText id="bcxxza8rbvxxxxxxxxxxperiod8"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bcxxza8rbvxxxxxxxxxxperiod8}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bcxxza8rbvxxxxxxxxxxperiod8}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -528,9 +547,10 @@
       <h:inputText id="bcxxzb8rbvxxxxxxxxxxperiod8b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bcxxzb8rbvxxxxxxxxxxperiod8b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bcxxzb8rbvxxxxxxxxxxperiod8b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -543,9 +563,10 @@
       <h:inputText id="bdxxza9rbvxxxxxxxxxxperiod9"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bdxxza9rbvxxxxxxxxxxperiod9}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bdxxza9rbvxxxxxxxxxxperiod9}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -558,9 +579,10 @@
       <h:inputText id="bdxxzb9rbvxxxxxxxxxxperiod9b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bdxxzb9rbvxxxxxxxxxxperiod9b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bdxxzb9rbvxxxxxxxxxxperiod9b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -573,9 +595,10 @@
       <h:inputText id="bexxzaarbvxxxxxxxxxxperiod10"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bexxzaarbvxxxxxxxxxxperiod10}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bexxzaarbvxxxxxxxxxxperiod10}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -588,9 +611,10 @@
       <h:inputText id="bexxzbarbvxxxxxxxxxxperiod10b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bexxzbarbvxxxxxxxxxxperiod10b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bexxzbarbvxxxxxxxxxxperiod10b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -603,9 +627,10 @@
       <h:inputText id="bfxxzabrbvxxxxxxxxxxperiod11"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bfxxzabrbvxxxxxxxxxxperiod11}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bfxxzabrbvxxxxxxxxxxperiod11}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -618,9 +643,10 @@
       <h:inputText id="bfxxzbbrbvxxxxxxxxxxperiod11b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bfxxzbbrbvxxxxxxxxxxperiod11b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bfxxzbbrbvxxxxxxxxxxperiod11b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -633,9 +659,10 @@
       <h:inputText id="bgxxzacrbvxxxxxxxxxxperiod12"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bgxxzacrbvxxxxxxxxxxperiod12}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bgxxzacrbvxxxxxxxxxxperiod12}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e4xxzatrbvxxxxxxxxxxperiodtotals" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzatrbvxxxxxxxxxxperiodtotals" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -648,9 +675,10 @@
       <h:inputText id="bgxxzbcrbvxxxxxxxxxxperiod12b"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bgxxzbcrbvxxxxxxxxxxperiod12b}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bgxxzbcrbvxxxxxxxxxxperiod12b}:this.value;"
-      size="21">
-                  <f:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" render="e3xxzbtrbvxxxxxxxxxxperiodtotalsb" bypassUpdates="false"/>
+      size="21" >
+                  <p:ajax   listener="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.recalculateTotalThis()}" event="keyup" update="b4xxzbtrbvxxxxxxxxxxperiodtotalsb" />
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -663,8 +691,9 @@
       <h:inputText id="bhxxzcarbvxxxxxxxxxxperiodnb"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bhxxzcarbvxxxxxxxxxxperiodnb}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bhxxzcarbvxxxxxxxxxxperiodnb}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -677,8 +706,9 @@
       <h:inputText id="bhxxzxxrbvxxxxxxxxxxperiodn"  
          value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bhxxzxxrbvxxxxxxxxxxperiodn}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.bhxxzxxrbvxxxxxxxxxxperiodn}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
    </h:panelGrid>
@@ -709,8 +739,9 @@
       </h:outputLabel>
                 <h:inputText id="z1xxzzfxhhxxxxxxxxxxstatusfl" 
                           value="#{jxxxuq53dxwwqqhxxxxxrollupgroupHome.instance.z1xxzzfxhhxxxxxxxxxxstatusfl}"
-                           size="21">
+                           size="21" >
                 </h:inputText>
+
             </h:panelGroup>
 
 

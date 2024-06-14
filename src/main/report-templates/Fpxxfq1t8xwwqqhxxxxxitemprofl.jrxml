@@ -320,7 +320,7 @@
 
 FROM
        genapp.itemprofl itemprofl WHERE 
-       (itemprofl.row) >=  $P{Start_t} AND   (itemprofl.row <= $P{End_t}) AND (itemprofl.owner2 = $P{owner2Code_t} and (itemprofl.statusfl = $P{Status_t} or $P{Status_t} is null) ) order by cast($P{SortKey_t} as varchar(32)) $P!{SortOrder_t}  ]]></queryString>
+        (itemprofl.row) >=  $P{Start_t} AND   (itemprofl.row <= $P{End_t}) AND (itemprofl.owner2 = $P{owner2Code_t} and (itemprofl.statusfl = $P{Status_t} or $P{Status_t} is null) ) order by cast($P{SortKey_t} as varchar(32)) $P!{SortOrder_t}  ]]></queryString>
         <field name="itemprofl_sid" class="java.lang.Integer"/>
       <field name="itemprofl_width" class="java.lang.String"/>
       <field name="itemprofl_height" class="java.lang.String"/>
@@ -670,91 +670,135 @@ FROM
      	<queryString><![CDATA[SELECT
         itemprofl.sid AS itemprofl_sid,
 
+
         itemprofl.width AS itemprofl_width,
+
 
         itemprofl.height AS itemprofl_height,
 
+
         itemprofl.row AS itemprofl_row,
+
 
         itemprofl.length AS itemprofl_length,
 
+
         itemprofl.sizeunit AS itemprofl_sizeunit,
+
 
         itemprofl.weight AS itemprofl_weight,
 
+
         itemprofl.weightunit AS itemprofl_weightunit,
+
 
         itemprofl.shipmode AS itemprofl_shipmode,
 
+
         itemprofl.colour AS itemprofl_colour,
+
 
         itemprofl.madein AS itemprofl_madein,
 
+
         itemprofl.material AS itemprofl_material,
+
 
         itemprofl.sku AS itemprofl_sku,
 
+
         itemprofl.saleschannel AS itemprofl_saleschannel,
+
 
         itemprofl.compareprice AS itemprofl_compareprice,
 
+
         itemprofl.customscode AS itemprofl_customscode,
+
 
         itemprofl.pagetitle AS itemprofl_pagetitle,
 
+
         itemprofl.metadescription AS itemprofl_metadescription,
+
 
         itemprofl.urlhandle AS itemprofl_urlhandle,
 
+
         itemprofl.rating AS itemprofl_rating,
+
 
         itemprofl.points AS itemprofl_points,
 
+
         itemprofl.pointsunit AS itemprofl_pointsunit,
+
 
         itemprofl.dtstyle AS itemprofl_dtstyle,
 
+
         itemprofl.ftstyle AS itemprofl_ftstyle,
+
 
         itemprofl.defaultr AS itemprofl_defaultr,
 
+
         itemprofl.defaultc AS itemprofl_defaultc,
+
 
         itemprofl.dbname AS itemprofl_dbname,
 
+
         itemprofl.rootdir AS itemprofl_rootdir,
+
 
         itemprofl.keyorder AS itemprofl_keyorder,
 
+
         itemprofl.margin AS itemprofl_margin,
+
 
         itemprofl.footer AS itemprofl_footer,
 
+
         itemprofl.listbuildc AS itemprofl_listbuildc,
+
 
         itemprofl.listbuildv AS itemprofl_listbuildv,
 
+
         itemprofl.listbuilde AS itemprofl_listbuilde,
+
 
         itemprofl.listbrownc AS itemprofl_listbrownc,
 
+
         itemprofl.listbrownv AS itemprofl_listbrownv,
+
 
         itemprofl.listbrowne AS itemprofl_listbrowne,
 
+
         itemprofl.itemid AS itemprofl_itemid,
+
 
         itemprofl.notes AS itemprofl_notes,
 
+
         itemprofl.docmnt AS itemprofl_docmnt,
+
 
         itemprofl.statusfl AS itemprofl_statusfl,
 
+
         itemprofl.statusfldt AS itemprofl_statusfldt,
+
 
         itemprofl.owner AS itemprofl_owner,
 
+
         itemprofl.owner2 AS itemprofl_owner2
+
 
 
 FROM

@@ -106,13 +106,12 @@
           <ui:define name="label">#{messages['Cuinvoice']} 
           </ui:define>
                 <p:remoteCommand name="trexuq266xwwqqhxxxxxcuinvoiceFunction" proces="@all" update="@none" />
-                <h:selectOneMenu styleClass="autoCompleteWidth50"  
+                <p:selectOneMenu styleClass="autoCompleteWidth50"  
                   rendered="#{!fn:containsIgnoreCase(request.getHeader('User-Agent'), 'Jayfox')}"
                      required="false" 
                        label="cuinvoice"
                     requiredMessage="#{messages['Cuinvoice']} #{messages['ValueRequired']}"
                     validator="#{trexuq277xwwqqhxxxxxcpaymentHome.validateAndSelectXxxxxxxxinvoice}" 
-                   var ="result"   
                    value="#{trexuq266xwwqqhxxxxxcuinvoiceHome.lasttrexuq266xwwqqhxxxxxcuinvoiceP}"
                  > 
                  <f:selectItem itemValue="#{null}" itemLabel="" />
@@ -123,16 +122,15 @@
                   result.jxxxuq201xwwqqhxxxxxcustomer.c1xxuslnbvixxxxxxxxxlastname).concat('/').concat(
                    result.jxxxuq201xwwqqhxxxxxcustomer.d1xxu3cnbvixxxxxxxxxcustomerascompanyname)}"
                   />
-                </h:selectOneMenu>
+                </p:selectOneMenu>
           </ui:decorate>
           #{messages['Cuinvoice']} [#{messages['closed']}]
-                <h:selectOneMenu styleClass="autoCompleteWidth50"  
+                <p:selectOneMenu styleClass="autoCompleteWidth50"  
                  rendered="#{!fn:containsIgnoreCase(request.getHeader('User-Agent'), 'Jayfox')}"
                      required="false" 
                        label="cuinvoice"
                     requiredMessage="#{messages['Cuinvoice']} #{messages['ValueRequired']}"
                     validator="#{trexuq277xwwqqhxxxxxcpaymentHome.validateAndSelectXxxxxxxxinvoice}" 
-                   var ="result"   
                    value="#{trexuq266xwwqqhxxxxxcuinvoiceHome.lasttrexuq266xwwqqhxxxxxcuinvoiceP}"
                  > 
                  <f:selectItem itemValue="#{null}" itemLabel="" />
@@ -142,7 +140,7 @@
                   result.jxxxuq201xwwqqhxxxxxcustomer.c1xxuslnbvixxxxxxxxxlastname).concat('/').concat(
                    result.jxxxuq201xwwqqhxxxxxcustomer.d1xxu3cnbvixxxxxxxxxcustomerascompanyname)}"
                   />
-                </h:selectOneMenu>
+                </p:selectOneMenu>
           <br/>
           <ui:remove>  added vq-sv to hide qtyord </ui:remove>
           <h:panelGroup>
@@ -152,7 +150,7 @@
         	 <h:inputText id="amtIn" value="#{xoxxuq284xwwqqhxxxxxcupdetailsHome.instance.z6xxzxxxavxxxxxxxxxxamountin}"  
                  onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{xoxxuq284xwwqqhxxxxxcupdetailsHome.instance.z6xxzxxxavxxxxxxxxxxamountin}}:this.value;"
                  disabled="false" >
-                 <f:ajax listener = "#{trexuq277xwwqqhxxxxxcpaymentHome.showtemprunt}"  event="keyup" render="matcodeDescriptDecoration,matcodePriceLabelT,matcodeTDecoration,matcodeDecorationmis,matcodeDecorationdelT,matcodeDecorationtax1T,matcodeDecorationtax2T" bypassUpdates="false"/>
+                 <p:ajax listener = "#{trexuq277xwwqqhxxxxxcpaymentHome.showtemprunt}"  event="keyup" update="@form" />
                  <f:convertNumber  maxFractionDigits="2" minFractionDigits="0" />
              </h:inputText>
              </ui:decorate>
@@ -231,8 +229,9 @@
       </h:outputLabel>
                 <h:inputText id="b3xxudiravxxxxxxxxxxmatcode" 
                           value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.b3xxudiravxxxxxxxxxxmatcode}"
-                           size="21">
+                           size="21" >
                 </h:inputText>
+
             </h:panelGroup>
 
 
@@ -245,8 +244,9 @@
       <h:inputText id="b3xxzixrbvxxxxxxxxxxdiscount"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.b3xxzixrbvxxxxxxxxxxdiscount}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.b3xxzixrbvxxxxxxxxxxdiscount}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -290,7 +290,7 @@
       </h:outputLabel>
  
                <h:selectOneMenu style="width:250px;"  value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.b6xxuxxrbv10xxxxxxxxpaytype}" required="false" id="b6xxuxxrbv10xxxxxxxxpaytype">
-               <f:ajax  render="b6xxuxxrbv10xxxxxxxxpaytypeI" bypassUpdates="false"/>
+               <p:ajax  update="b6xxuxxrbv10xxxxxxxxpaytype" />
                                 <f:selectItem itemValue="#{null}" itemLabel="" />
                                 <f:selectItems value="#{yrxxch511xhhxxhxxxxxoptionsList.getoptionsFieldList('27',10)}"  var="babu"  
                                  itemLabel="#{babu.key}"
@@ -335,8 +335,9 @@
       </h:outputLabel>
                 <h:inputText id="c9xxpxiravxxxxxxxxxxpostingperiod" 
                           value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.c9xxpxiravxxxxxxxxxxpostingperiod}"
-                           size="21">
+                           size="21" >
                 </h:inputText>
+
             </h:panelGroup>
 
 
@@ -365,8 +366,9 @@
       <h:inputText id="d1xxzyprlxxxxxxxxxxxamountin"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.d1xxzyprlxxxxxxxxxxxamountin}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.d1xxzyprlxxxxxxxxxxxamountin}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -379,8 +381,9 @@
       <h:inputText id="d2xxzxxrlvxxxxxxxxxxconvrate"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.d2xxzxxrlvxxxxxxxxxxconvrate}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.d2xxzxxrlvxxxxxxxxxxconvrate}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -392,7 +395,7 @@
       </h:outputLabel>
  
                <h:selectOneMenu style="width:250px;"  value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.f1xxuwmxbv40xxxxxxxxintegrset}" required="false" id="f1xxuwmxbv40xxxxxxxxintegrset">
-               <f:ajax  render="f1xxuwmxbv40xxxxxxxxintegrsetI" bypassUpdates="false"/>
+               <p:ajax  update="f1xxuwmxbv40xxxxxxxxintegrset" />
                                 <f:selectItem itemValue="#{null}" itemLabel="" />
                                 <f:selectItems value="#{yrxxch511xhhxxhxxxxxoptionsList.getoptionsFieldList('27',40)}"  var="babu"  
                                  itemLabel="#{babu.key}"
@@ -450,8 +453,9 @@
       <h:inputText id="z1xxztprlxxxxxxxxxxxamounttotal"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z1xxztprlxxxxxxxxxxxamounttotal}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z1xxztprlxxxxxxxxxxxamounttotal}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -464,8 +468,9 @@
       <h:inputText id="z2xxzyprlxxxxxxxxxxxamountostndt"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z2xxzyprlxxxxxxxxxxxamountostndt}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z2xxzyprlxxxxxxxxxxxamountostndt}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -478,8 +483,9 @@
       <h:inputText id="z3xxztqrlxxxxxxxxxxxqtytotal"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z3xxztqrlxxxxxxxxxxxqtytotal}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z3xxztqrlxxxxxxxxxxxqtytotal}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -492,8 +498,9 @@
       <h:inputText id="z4xxzyqrlxxxxxxxxxxxqtyostndt"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z4xxzyqrlxxxxxxxxxxxqtyostndt}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z4xxzyqrlxxxxxxxxxxxqtyostndt}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -537,8 +544,9 @@
       <h:inputText id="z7xxzbtxavxxxxxxxxxxbaseamountt"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z7xxzbtxavxxxxxxxxxxbaseamountt}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z7xxzbtxavxxxxxxxxxxbaseamountt}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -567,8 +575,9 @@
       <h:inputText id="z7xxzxxrlvxxxxxxxxxxlocamountt"  
          value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z7xxzxxrlvxxxxxxxxxxlocamountt}"
           onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z7xxzxxrlvxxxxxxxxxxlocamountt}:this.value;"
-      size="21">
+      size="21" >
      </h:inputText>
+
             </h:panelGroup>
 
 
@@ -585,7 +594,7 @@
                             onclick="this.value='';" onfocus="this.select()" type="text"  onblur="this.value=!this.value?#{xoxxuq284xwwqqhxxxxxcupdetailsHome.instance.zaxxzmxxavxxxxxxxxxxmiscchrg}:this.value;"
                             value="#{xoxxuq284xwwqqhxxxxxcupdetailsHome.instance.zaxxzmxxavxxxxxxxxxxmiscchrg}">
                             <ui:remove>
-                            <f:ajax listener = "#{trexuq277xwwqqhxxxxxcpaymentHome.showtemprunt}"  event="select" render="matcodeTDecoration,matcodeDecorationmis" bypassUpdates="false"/>
+                            <p:ajax listener = "#{trexuq277xwwqqhxxxxxcpaymentHome.showtemprunt}"  event="select" update="@form" />
                             </ui:remove> 
          </h:inputText>
             </h:panelGroup>
@@ -599,8 +608,9 @@
       </h:outputLabel>
                 <h:inputText id="z8xxzzfxhhxxxxxxxxxxstatusfl" 
                           value="#{trexuq277xwwqqhxxxxxcpaymentHome.instance.z8xxzzfxhhxxxxxxxxxxstatusfl}"
-                           size="21">
+                           size="21" >
                 </h:inputText>
+
             </h:panelGroup>
 
 
@@ -785,7 +795,7 @@
                             <f:facet id="CartRemoveFacet" name="header">
                                 <h:outputText id="CartRemoveText" value="#{messages['removeColumn']}" />
                             </f:facet>
-                            <h:selectBooleanCheckbox id="CartRemoveCheckbox" value="#{trexuq277xwwqqhxxxxxcpaymentHome.checked[item.a0xxuobxbxxxxxxxxxxxsid]}"/>
+                            <p:selectBooleanCheckbox id="CartRemoveCheckbox" value="#{trexuq277xwwqqhxxxxxcpaymentHome.checked[item.a0xxuobxbxxxxxxxxxxxsid]}"/>
                         </p:column>
                         <p:column id="columnxxo">
                             <f:facet id="XxoFacet" name="header">
@@ -924,10 +934,10 @@
             <h:panelGrid columns="2">
              <ui:decorate template="layout/display.xhtml">
                 <ui:define name="label">#{messages['report.displayAs']}</ui:define>
-                <h:selectOneMenu id="displayAs" value="#{trexuq277xwwqqhxxxxxcpaymentList.displayAs}">
+                <p:selectOneMenu id="displayAs" value="#{trexuq277xwwqqhxxxxxcpaymentList.displayAs}">
                  <f:selectItem id="ditem2" itemLabel="HTML" itemValue="HTML" />
                  <f:selectItem id="ditem1" itemLabel="PDF" itemValue="PDF" />
-                </h:selectOneMenu> 
+                </p:selectOneMenu> 
              </ui:decorate>
             </h:panelGrid>
              <h:commandButton id="ePrint" value="#{messages['Print']}/#{messages['Preview']} #{messages['report']}"   onclick="this.form.target='_blank'"

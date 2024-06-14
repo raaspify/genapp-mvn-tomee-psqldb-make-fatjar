@@ -5,7 +5,6 @@
                  xmlns:h="http://java.sun.com/jsf/html"
                  xmlns:f="http://java.sun.com/jsf/core"
                  xmlns:c="http://java.sun.com/jsp/jstl/core"
-                 xmlns:p="http://primefaces.org/ui"
                  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
                  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
                  template="layout/rtemplateUi.xhtml">
@@ -13,6 +12,7 @@
     <f:viewParam name="imail" value="#{fpxxfq1a5xwwqqhxxxxxitemHome.imailaddr}"/>
     <f:viewParam name="imailAlt" value="#{fpxxfq1a5xwwqqhxxxxxitemHome.imailaddrAlt}"/>
     <f:viewParam name="poSid" value="#{fpxxfq1a5xwwqqhxxxxxitemHome.valueOverRide}"/>
+    <f:viewAction action="#{fpxxfq1a5xwwqqhxxxxxitemList.setCategory(0)}" />
     <f:viewParam name="searchPattern" value="#{fpxxfq1a5xwwqqhxxxxxitemList.searchPattern}"/>
     <f:viewAction action="#{fpxxfq1a5xwwqqhxxxxxitemList.getSearchedList('s')}"/>
 </f:metadata>
@@ -41,6 +41,16 @@
         target.value= "";
     }
     </script>
+  <script>
+     let date = Date.now();
+     /* 2. Define your event. */
+     function addToCart() {
+     alert('addToCart');
+       gtag('event', 'addTo_Cart', {
+       'time': date,
+       });
+   }
+   </script>
 <style>
 .dropdown:hover>.dropdown-menu {
   display: block;
@@ -684,9 +694,11 @@
 
          <div id="i#{row.a0xxuobxbxxxxxxxxxxxsid}" class="card r3-image-wrapper border-0" style="padding:50px;width:300px;border:none;">
           <h:panelGrid columns="4" >
-            <h:link value="#{messages['Product']} #{messages['Info']}" outcome="/cartItem.xhtml" rendered="#{!identity.loggedIn }" >
+            <h:link value="#{messages['Product']} #{messages['Info']}" outcome="/cartItem.xhtml"  >
              <f:param name="categoryJay" value="#{row.a0xxuobxbxxxxxxxxxxxsid}" />
             </h:link>
+            <h:outputText value="[#{yxxxuq1m1xwwqqqxxxxxclobdataList.getFlaggedAsList(512).size()}]" rendered="#{yxxxuq1m1xwwqqqxxxxxclobdataList.getFlaggedAsList(512).size()} gt 0}">
+            </h:outputText>
 
             <h:link value="#{messages['Edit']}" outcome="/shopItem.xhtml" rendered="#{identity.loggedIn and (customIdentity.hasRole('UH')||customIdentity.hasRole('UQ'))}" >
               <f:param name="fpxxfq1a5xwwqqhxxxxxitemA0xxuobxbxxxxxxxxxxxsid" value="#{row.a0xxuobxbxxxxxxxxxxxsid}"/>
@@ -698,9 +710,10 @@
               rendered="#{identity.loggedIn and empty row.h1xxcxxrbxxxxxxxxxxxeffdate}">                        
             </h:outputText>
           </h:panelGrid>
+
           <h:link id="AddToCart1I"   rendered= "#{row.b0xxziqxlvxxsaxxxxxxquantity gt 0 and !row.c6xxusxrbv16xxxxxxxxtype.contains('(q)')
             and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('trial') and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('recurring')}"
-            outcome="/cartItem.xhtml" >
+            outcome="/cartItem.xhtml" onlick="addToCart() ;return false">
              <f:param name="categoryJay" value="#{row.a0xxuobxbxxxxxxxxxxxsid}" />
            <h:graphicImage rendered="#{row.fpxxfq1a5xwwqqhxxxxxitem.g2xxuxn1bvxxxxxxxxxxsubcodesn!='TH' 
              and fpxxfq1a5xwwqqhxxxxxitemHome.getBlobdata('FPXXFQ1A5XWWQQHXXXXXITEM',row.w8xxuzdrbvxxxxxxxxxxdocmnt,1,1) != null}"
@@ -728,7 +741,7 @@
 
                            <ui:fragment rendered="#{row.fpxxfq1a5xwwqqhxxxxxitem.g2xxuxn1bvxxxxxxxxxxsubcodesn!='TH'
                               and not empty row.w7xxuznxbvxxxxxxxxxxnotes}">
-                            #{row.w7xxuznxbvxxxxxxxxxxnotes}
+                            <h:outputText escape="false" value="#{row.w7xxuznxbvxxxxxxxxxxnotes}" />
                            </ui:fragment>
                            <ui:fragment rendered="#{row.w7xxuznxbvxxxxxxxxxxnotes == null or empty row.w7xxuznxbvxxxxxxxxxxnotes}">
                             <br></br>
@@ -820,7 +833,7 @@
                             <h:link id="AddToCart1" styleClass="btn btn-primary"  rendered= "#{row.fpxxfq1a5xwwqqhxxxxxitem.g2xxuxn1bvxxxxxxxxxxsubcodesn!='TH'
                              and (row.b0xxziqxlvxxsaxxxxxxquantity gt 0 and !row.c6xxusxrbv16xxxxxxxxtype.contains('(q)')
                              and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('trial') and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('recurring'))}"
-                                 outcome="/cartItem.xhtml" 
+                                 outcome="/cartItem.xhtml" onlick="addToCart()"
                                  value="#{messages['Add']} #{messages['To']} #{messages['Cart']}">
                                 <f:param name="categoryJay" value="#{row.a0xxuobxbxxxxxxxxxxxsid}" />
                             </h:link>
@@ -830,7 +843,7 @@
                             </ui:remove>
                             <h:commandLink id="AddToCart1m" styleClass="btn btn-primary"  rendered= "#{row.b0xxziqxlvxxsaxxxxxxquantity gt 0 and !row.c6xxusxrbv16xxxxxxxxtype.contains('(q)')
                              and (row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('trial') )}"
-                                 action="#{fpxxfq1a5xwwqqhxxxxxitemHome.addProductToOrderParam(1,'trial')}" 
+                                 action="#{fpxxfq1a5xwwqqhxxxxxitemHome.addProductToOrderParam(1,'trial')}"  
                                   value="#{messages['Start']} #{messages['free']} #{messages['trial']}">
                               <f:param name="poSid" value="#{row.a0xxuobxbxxxxxxxxxxxsid}" />
                             </h:commandLink>
@@ -880,7 +893,7 @@
           </h:panelGrid>
           <h:link id="AddToCart1I"   rendered= "#{row.b0xxziqxlvxxsaxxxxxxquantity gt 0 and !row.c6xxusxrbv16xxxxxxxxtype.contains('(q)')
             and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('trial') and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('recurring')}"
-            outcome="/cartItem.xhtml" >
+            outcome="/cartItem.xhtml"  onlick="addToCart()">
              <f:param name="categoryJay" value="#{row.a0xxuobxbxxxxxxxxxxxsid}" />
            <h:graphicImage rendered="#{row.fpxxfq1a5xwwqqhxxxxxitem.g2xxuxn1bvxxxxxxxxxxsubcodesn!='TH' 
              and fpxxfq1a5xwwqqhxxxxxitemHome.getBlobdata('FPXXFQ1A5XWWQQHXXXXXITEM',row.w8xxuzdrbvxxxxxxxxxxdocmnt,1,1) != null}"
@@ -908,7 +921,7 @@
 
                            <ui:fragment rendered="#{row.fpxxfq1a5xwwqqhxxxxxitem.g2xxuxn1bvxxxxxxxxxxsubcodesn!='TH'
                               and not empty row.w7xxuznxbvxxxxxxxxxxnotes}">
-                            #{row.w7xxuznxbvxxxxxxxxxxnotes}
+                              <h:outputText escape="false" value="#{row.w7xxuznxbvxxxxxxxxxxnotes}" />
                            </ui:fragment>
                            <ui:fragment rendered="#{row.w7xxuznxbvxxxxxxxxxxnotes == null or empty row.w7xxuznxbvxxxxxxxxxxnotes}">
                             <br></br>
@@ -996,7 +1009,7 @@
                             <h:link id="AddToCart1mm" styleClass="btn btn-primary"  rendered= "#{row.fpxxfq1a5xwwqqhxxxxxitem.g2xxuxn1bvxxxxxxxxxxsubcodesn!='TH'
                              and (row.b0xxziqxlvxxsaxxxxxxquantity gt 0 and !row.c6xxusxrbv16xxxxxxxxtype.contains('(q)')
                              and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('trial') and !row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('recurring'))}"
-                                 outcome="/cartItem.xhtml" 
+                                 outcome="/cartItem.xhtml" onlick="addToCart()"
                                  value="#{messages['Add']} #{messages['To']} #{messages['Cart']}">
                                 <f:param name="categoryJay" value="#{row.a0xxuobxbxxxxxxxxxxxsid}" />
                             </h:link>
@@ -1006,7 +1019,7 @@
                             </ui:remove>
                             <h:commandLink id="AddToCart1mtt" styleClass="btn btn-primary"  rendered= "#{row.b0xxziqxlvxxsaxxxxxxquantity gt 0 and !row.c6xxusxrbv16xxxxxxxxtype.contains('(q)')
                              and (row.y2xxuxxrbvxxxxxxxxxxmisccode1.contains('trial') )}"
-                                 action="#{fpxxfq1a5xwwqqhxxxxxitemHome.addProductToOrderParam(1,'trial')}" 
+                                 action="#{fpxxfq1a5xwwqqhxxxxxitemHome.addProductToOrderParam(1,'trial')}"  
                                   value="#{messages['Start']} #{messages['free']} #{messages['trial']}">
                               <f:param name="poSid" value="#{row.a0xxuobxbxxxxxxxxxxxsid}" />
                             </h:commandLink>
@@ -1075,14 +1088,6 @@
        <br></br>
        But you also have the option to continue by entering your email id.
        <br></br>
-       <div >
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <h:inputText required="false" id="emailE" value="#{customIdentity.imailaddr}" size="25" rendered="true" pt:placeholder="Email"/>
-        <h:commandButton class="btn btn-primary" id="changePWCommand" action="#{fpxxfq1a5xwwqqhxxxxxitemHome.validateEmail(customIdentity.imailaddr)}"
-         value="#{messages['Confirm']}" >
-         <f:ajax execute="@form" render="@form" /> 
-        </h:commandButton>
-       </div>
 
       </div>
 

@@ -1,5 +1,5 @@
 package com.rcomputer.genapp.model;
-// Generated 28-Jun-2023 5:43:26 PM by Hibernate Tools 4.0.0
+// Generated 26-May-2024 9:51:06 PM by Hibernate Tools 4.0.0
 
 import java.math.BigDecimal;
 import java.util.Date;
